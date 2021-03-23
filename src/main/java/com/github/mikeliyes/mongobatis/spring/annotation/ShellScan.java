@@ -13,5 +13,8 @@ import org.springframework.context.annotation.Import;
 @Documented
 @Import(ShellScannerRegistrar.class)
 public @interface ShellScan {
+	
+	String[] value() default {};
 
+	String[] basePackagePath() default {};
 }
