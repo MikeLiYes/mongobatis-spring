@@ -2,15 +2,16 @@ package com.github.mikeliyes.mongobatis.spring;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.github.mikeliyes.mongobatis.spring.annotation.ShellConfig;
 import com.github.mikeliyes.mongobatis.spring.annotation.ShellScan;
-import com.github.mikeliyes.mongobatis.spring.annotation.ShellScannerRegistrar;
 
 @ShellScan("hello.dao")
 public class test {
 
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShellScan.class);
-        ctx.refresh();
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+		ctx.register(ShellConfig.class);
+		ctx.refresh();
         printBeans(ctx);
 	}
 	
